@@ -1,8 +1,12 @@
 import React from "react";
 import { useAuth } from "../context/AuthContext";
+import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 export default function LoginForm() {
+    const [loginFailed, setLoginFailed] = useState(false);
     const { login } = useAuth();
+    const navigate = useNavigate();
     const onSubmint = async (event) => {
         event.preventDefault();
         const formData = new FormData(event.target);
@@ -12,9 +16,10 @@ export default function LoginForm() {
         try {
             await login(email, password);
             console.log("Login successful");
+            navigate("/");
         } catch (error) {
+            setLoginFailed(true);
             console.error("Login failed:", error);
-            // Handle login failure (e.g., show error message)
         }
     }
 
@@ -30,7 +35,7 @@ export default function LoginForm() {
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-text dark:text-text">Your email</label>
                                 <input
-                                    type="email"
+
                                     name="email"
                                     id="email"
                                     className="bg-bg border border-secondary text-text rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-bg dark:border-secondary dark:placeholder-gray-400 dark:text-text"
@@ -51,17 +56,8 @@ export default function LoginForm() {
                             </div>
                             <div className="flex items-center justify-between">
                                 <div className="flex items-start">
-                                    <div className="flex items-center h-5">
-                                        <input
-                                            id="remember"
-                                            type="checkbox"
-                                            className="w-4 h-4 border border-secondary rounded bg-bg focus:ring-3 focus:ring-primary dark:bg-bg dark:border-secondary"
-                                            required
-                                        />
-                                    </div>
-                                    <div className="ml-3 text-sm">
-                                        <label htmlFor="remember" className="text-secondary dark:text-secondary">Remember me</label>
-                                    </div>
+
+
                                 </div>
                                 <a href="#" className="text-sm font-medium text-primary hover:underline dark:text-primary">Forgot password?</a>
                             </div>
@@ -71,6 +67,12 @@ export default function LoginForm() {
                             >
                                 Sign in
                             </button>
+                            {loginFailed && (
+                                <p className="text-red-500 text-sm">
+                                    Login failed. Please check your email and password.
+                                </p>
+                            )}
+
                             <p className="text-sm font-light text-secondary dark:text-secondary">
                                 Don’t have an account yet?{" "}
                                 <a href="#" className="font-medium text-primary hover:underline dark:text-primary">Sign up</a>
