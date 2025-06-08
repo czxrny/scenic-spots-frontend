@@ -2,6 +2,10 @@ import { Link } from "react-router-dom";
 import React, { useState, useRef, useEffect } from "react";
 import ThemeSwitcher from "./ThemeSwitch";
 import { useAuth } from "../context/AuthContext";
+import { PersonStanding } from "lucide-react";
+import { toggleTheme } from "./ThemeSwitch";
+
+
 
 export default function Navbar() {
   const { auth, logout } = useAuth();
@@ -25,7 +29,7 @@ export default function Navbar() {
 
   return (
     <nav
-      className="border-b sticky top-0"
+      className="border-b sticky top-0 z-50"
       style={{
         backgroundColor: "var(--color-muted)",
         borderColor: "var(--color-border)",
@@ -191,8 +195,11 @@ export default function Navbar() {
             </div>
           </div>
         </div>
+        <button className="cursor-pointer float-end" onClick={() => toggleTheme("high-contrast")}>
+          <PersonStanding size={48} />
+        </button>
+        <ThemeSwitcher />
       </div>
-      <ThemeSwitcher />
     </nav>
   );
 }
