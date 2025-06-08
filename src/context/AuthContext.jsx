@@ -1,6 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import loginApi from "../utils/api/login";
-import * as jwt_decode from "jwt-decode";
+import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext(null);
 
@@ -8,7 +8,7 @@ export function AuthProvider({ children }) {
     const [auth, setAuth] = useState(() => {
         const token = localStorage.getItem("token");
         if (token) {
-            const payload = jwt_decode(token);
+            const payload = jwtDecode(token);
             return {
                 token,
                 userId: payload.lid || payload.userId,
@@ -24,7 +24,7 @@ export function AuthProvider({ children }) {
     const login = async (username, password) => {
         const data = await loginApi(username, password);
         const { token } = data;
-        const payload = jwt_decode(token);
+        const payload = jwtDecode(token);
         const userData = {
             token,
             userId: payload.lid || payload.userId,
@@ -33,7 +33,6 @@ export function AuthProvider({ children }) {
             expire: payload.exp,
         };
         setAuth(userData);
-        console.log("Login successful:", userData);
         localStorage.setItem("token", token);
     };
 

@@ -1,6 +1,23 @@
 import React from "react";
+import { useAuth } from "../context/AuthContext";
 
 export default function LoginForm() {
+    const { login } = useAuth();
+    const onSubmint = async (event) => {
+        event.preventDefault();
+        const formData = new FormData(event.target);
+        const email = formData.get("email");
+        const password = formData.get("password");
+
+        try {
+            await login(email, password);
+            console.log("Login successful");
+        } catch (error) {
+            console.error("Login failed:", error);
+            // Handle login failure (e.g., show error message)
+        }
+    }
+
     return (
         <section className="bg-bg dark:bg-bg">
             <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto h-full lg:py-0">
@@ -9,7 +26,7 @@ export default function LoginForm() {
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-text md:text-2xl dark:text-text">
                             Sign in to your account
                         </h1>
-                        <form className="space-y-4 md:space-y-6" action="#">
+                        <form className="space-y-4 md:space-y-6" action="#" onSubmit={onSubmint}>
                             <div>
                                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-text dark:text-text">Your email</label>
                                 <input
