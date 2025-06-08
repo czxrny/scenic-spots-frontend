@@ -50,3 +50,7 @@
   --color-muted: #1a1a1a;
   --color-border: #ffffff;
 }
+
+html{
+    font-family: "Courier New", Courier, monospace;
+}

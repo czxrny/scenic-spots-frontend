@@ -6,7 +6,7 @@ function Login() {
     const { auth } = useAuth();
 
     return (
-        <div className="w-full min-h-screen flex items-center justify-center bg-bg">
+        <div className="w-full flex items-center h-full  justify-center min-h-[80vh]">
             <div className="w-full max-w-md">
                 <LoginForm />
             </div>

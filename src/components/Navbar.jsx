@@ -5,7 +5,7 @@ import ThemeSwitcher from "./ThemeSwitch"
 export default function Navbar() {
   return (
     <nav
-      className="border-b sticky top-0 z-50"
+      className="border-b sticky top-0"
       style={{
         backgroundColor: "var(--color-muted)",
         borderColor: "var(--color-border)",
@@ -85,19 +85,19 @@ export default function Navbar() {
                 to="/login"
                 className="py-2 px-4 rounded border transition"
                 style={{
-                  color: "var(--color-muted)",
+                  color: "var(--color-text)",
                   borderColor: "var(--color-border)",
-                  backgroundColor: "#2d2d2d",
+                  backgroundColor: "var(--color-secondary)",
                 }}
                 onMouseEnter={e => {
                   e.currentTarget.style.borderColor = "var(--color-primary)";
                   e.currentTarget.style.color = "var(--color-primary)";
-                  e.currentTarget.style.backgroundColor = "#2d2d2d";
+                  e.currentTarget.style.backgroundColor = "var(--color-accent)";
                 }}
                 onMouseLeave={e => {
                   e.currentTarget.style.borderColor = "var(--color-border)";
                   e.currentTarget.style.color = "var(--color-muted)";
-                  e.currentTarget.style.backgroundColor = "#2d2d2d";
+                  e.currentTarget.style.backgroundColor = "var(--color-secondary)";
                 }}
               >
                 Login
