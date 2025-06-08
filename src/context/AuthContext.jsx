@@ -1,5 +1,6 @@
 import React, { createContext, useState, useContext } from "react";
 import loginApi from "../utils/api/login";
+import registerApi from "../utils/api/register";
 import { jwtDecode } from "jwt-decode";
 
 const AuthContext = createContext(null);
@@ -36,6 +37,20 @@ export function AuthProvider({ children }) {
         localStorage.setItem("token", token);
     };
 
+    const register = async (email, username, password) => {
+        const data = await registerApi(email, username, password);
+        const { token } = data;
+        const payload = jwtDecode(token);
+        const userData = {
+            token,
+            userId: payload.lid || payload.userId,
+            username: payload.usr || payload.username,
+            userRole: payload.rol || payload.userRole,
+            expire: payload.exp,
+        };
+        setAuth(userData);
+        localStorage.setItem("token", token);
+    };
 
     const logout = () => {
         setAuth(null);
@@ -43,7 +58,7 @@ export function AuthProvider({ children }) {
     };
 
     return (
-        <AuthContext.Provider value={{ auth, login, logout }}>
+        <AuthContext.Provider value={{ auth, login, register, logout }}>
             {children}
         </AuthContext.Provider>
     );

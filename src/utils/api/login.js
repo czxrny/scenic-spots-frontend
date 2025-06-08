@@ -2,7 +2,7 @@ import axios from 'axios';
 
 export const API_BASE_URL = 'http://localhost:8080';
 
-export default function loin(username, password) {
+export default function loginApi(username, password) {
     return axios.post(API_BASE_URL + '/user/login', {
         "email": username,
         "password": password
