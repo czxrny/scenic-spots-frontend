@@ -10,10 +10,6 @@ import { AuthProvider } from './context/AuthContext';
 import { StrictMode } from 'react';
 
 function App() {
-  function toggleTheme(mode) {
-    document.documentElement.className = mode;
-  }
-
   return (
     <StrictMode>
       <AuthProvider>
@@ -29,18 +25,6 @@ function App() {
               <Route path="/register" element={<Register />} />
             </Routes>
           </BrowserRouter>
-
-          <div className="fixed top-2 left-2 z-50 flex gap-2">
-            <button onClick={() => toggleTheme('light')} className="px-2 py-1 bg-gray-200">
-              Light
-            </button>
-            <button onClick={() => toggleTheme('dark')} className="px-2 py-1 bg-gray-800 text-white">
-              Dark
-            </button>
-            <button onClick={() => toggleTheme('high-contrast')} className="px-2 py-1 bg-black text-yellow-300">
-              High Contrast
-            </button>
-          </div>
         </div>
       </AuthProvider>
     </StrictMode>

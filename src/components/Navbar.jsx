@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import React from "react";
+import ThemeSwitcher from "./ThemeSwitch"
 
 export default function Navbar() {
   return (
@@ -10,7 +11,7 @@ export default function Navbar() {
         borderColor: "var(--color-border)",
       }}
     >
-      <div className="container mx-auto flex flex-wrap items-center justify-between py-6 px-8">
+      <div className="container mx-auto flex flex-wrap items-center justify-between py-1 px-8">
         <div className="w-full max-w-6xl flex flex-wrap items-center justify-between py-6">
           <Link
             to="/"
@@ -118,6 +119,7 @@ export default function Navbar() {
           </div>
         </div>
       </div>
-    </nav>
+    <ThemeSwitcher />
+  </nav>
   );
 }
