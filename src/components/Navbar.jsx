@@ -6,13 +6,17 @@ import { useAuth } from "../context/AuthContext";
 export default function Navbar() {
   const { auth, logout } = useAuth();
   const [isDropdownOpen, setDropdownOpen] = useState(false);
-  const dropdownRef = useRef(null);
+  const spotsDropdownRef = useRef(null);
+  const userDropdownRef = useRef(null);
+  const [isUserDropdownOpen, setUserDropdownOpen] = useState(false);
 
-  // Close dropdown on outside click
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+      if (spotsDropdownRef.current && !spotsDropdownRef.current.contains(event.target)) {
         setDropdownOpen(false);
+      }
+      if (userDropdownRef.current && !userDropdownRef.current.contains(event.target)) {
+        setUserDropdownOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -46,28 +50,79 @@ export default function Navbar() {
                 borderColor: "var(--color-border)",
               }}
             >
-              {[{ to: "/", label: "Home" }, { to: "/spots", label: "Spots" }, { to: "/about", label: "About" }].map(
-                ({ to, label }) => (
-                  <li key={to}>
-                    <Link
-                      to={to}
-                      className="block py-2 px-3 rounded md:p-0"
-                      style={{ color: "var(--color-text)" }}
-                      onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-primary)")}
-                      onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text)")}
-                    >
-                      {label}
-                    </Link>
-                  </li>
-                )
-              )}
+              <li>
+                <Link
+                  to="/"
+                  className="block py-2 px-3 rounded md:p-0"
+                  style={{ color: "var(--color-text)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-primary)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+                >
+                  Home
+                </Link>
+              </li>
+
+              <li className="relative" ref={spotsDropdownRef}>
+                <button
+                  onClick={() => setDropdownOpen(!isDropdownOpen)}
+                  className="block py-2 px-3 rounded md:p-0 text-left md:text-center w-full md:w-auto"
+                  style={{ color: "var(--color-text)" }}
+                >
+                  Spots ▾
+                </button>
+
+                {isDropdownOpen && (
+                  <ul
+                    className="absolute mt-2 w-40 bg-white rounded shadow-lg z-50"
+                    style={{
+                      backgroundColor: "var(--color-muted)",
+                      border: "1px solid var(--color-border)",
+                      listStyle: "none",
+                      padding: "0",
+                      margin: "0",
+                    }}
+                    onMouseLeave={() => setDropdownOpen(false)}
+                  >
+                    <li>
+                      <Link
+                        to="/spots"
+                        className="block px-4 py-2 hover:bg-gray-100"
+                        style={{ color: "var(--color-text)" }}
+                      >
+                        All Spots
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        to="/spots/new"
+                        className="block px-4 py-2 hover:bg-gray-100"
+                        style={{ color: "var(--color-text)" }}
+                      >
+                        Add New Spot
+                      </Link>
+                    </li>
+                  </ul>
+                )}
+              </li>
+
+              <li>
+                <Link
+                  to="/about"
+                  className="block py-2 px-3 rounded md:p-0"
+                  style={{ color: "var(--color-text)" }}
+                  onMouseEnter={(e) => (e.currentTarget.style.color = "var(--color-primary)")}
+                  onMouseLeave={(e) => (e.currentTarget.style.color = "var(--color-text)")}
+                >
+                  About
+                </Link>
+              </li>
             </ul>
 
-            <div className="flex space-x-4 ml-8 relative" ref={dropdownRef}>
+            <div className="flex space-x-4 ml-8 relative" ref={userDropdownRef}>
               {auth ? (
                 <div className="relative">
                   <button
-                    onClick={() => setDropdownOpen(!isDropdownOpen)}
+                    onClick={() => setUserDropdownOpen(!isUserDropdownOpen)}
                     className="py-2 px-4 rounded border text-sm font-medium transition"
                     style={{
                       color: "var(--color-text)",
@@ -78,7 +133,7 @@ export default function Navbar() {
                     {auth.username} ▾
                   </button>
 
-                  {isDropdownOpen && (
+                  {isUserDropdownOpen && (
                     <div
                       className="absolute right-0 mt-2 w-40 bg-white rounded shadow-lg z-50"
                       style={{
@@ -89,7 +144,7 @@ export default function Navbar() {
                       <button
                         onClick={() => {
                           logout();
-                          setDropdownOpen(false);
+                          setUserDropdownOpen(false);
                         }}
                         className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                         style={{ color: "var(--color-text)" }}
