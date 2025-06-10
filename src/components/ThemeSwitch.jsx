@@ -43,7 +43,7 @@ export default function ThemeSwitcher() {
         aria-expanded={open}
         aria-label="Wybierz motyw kolorystyczny"
       >
-        Theme ▼
+        Tryb ▼
       </button>
 
       {open && (
@@ -60,7 +60,7 @@ export default function ThemeSwitcher() {
             tabIndex={0}
             aria-label="Motyw jasny"
           >
-            Light
+            Jasny
           </button>
           <button
             onClick={() => handleToggle("dark")}
@@ -69,7 +69,7 @@ export default function ThemeSwitcher() {
             tabIndex={0}
             aria-label="Motyw ciemny"
           >
-            Dark
+            Ciemny
           </button>
           <button
             onClick={() => handleToggle("high-contrast")}
@@ -78,7 +78,7 @@ export default function ThemeSwitcher() {
             tabIndex={0}
             aria-label="Motyw wysokiego kontrastu"
           >
-            High Contrast
+            Wysoki Kontrast
           </button>
         </div>
       )}

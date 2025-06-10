@@ -83,7 +83,7 @@ export default function Navbar() {
                   (e.currentTarget.style.color = "var(--color-text)")
                 }
               >
-                Home
+                Strona Główna
               </Link>
             </li>
 
@@ -93,7 +93,7 @@ export default function Navbar() {
                 className="block py-2 px-3 rounded w-full text-left md:text-center"
                 style={{ color: "var(--color-text)" }}
               >
-                Spots ▾
+                Spoty ▾
               </button>
               {isDropdownOpen && (
                 <ul
@@ -110,7 +110,7 @@ export default function Navbar() {
                       className="block px-4 py-2 hover:bg-gray-100"
                       style={{ color: "var(--color-text)" }}
                     >
-                      All Spots
+                      Wszystkie Spoty
                     </Link>
                   </li>
                   <li>
@@ -119,7 +119,7 @@ export default function Navbar() {
                       className="block px-4 py-2 hover:bg-gray-100"
                       style={{ color: "var(--color-text)" }}
                     >
-                      Add New Spot
+                      Dodaj Nowy Spot
                     </Link>
                   </li>
                 </ul>
@@ -138,7 +138,7 @@ export default function Navbar() {
                   (e.currentTarget.style.color = "var(--color-text)")
                 }
               >
-                About
+                O Projekcie
               </Link>
             </li>
           </ul>
@@ -174,7 +174,7 @@ export default function Navbar() {
                       className="block w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
                       style={{ color: "var(--color-text)" }}
                     >
-                      Logout
+                      Wyloguj
                     </button>
                   </div>
                 )}
@@ -190,14 +190,14 @@ export default function Navbar() {
                     backgroundColor: "var(--color-secondary)",
                   }}
                 >
-                  Login
+                  Zaloguj
                 </Link>
                 <Link
                   to="/register"
                   className="py-2 px-4 rounded text-white transition text-center"
                   style={{ backgroundColor: "#2563eb" }}
                 >
-                  Register
+                  Zarejestruj
                 </Link>
               </>
             )}
