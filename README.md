@@ -89,3 +89,8 @@ This will allow the backend to connect to the local Firestore and Storage emulat
 ## Status
 
 This project is currently under development.
+
+## TODO
+- Implement all of the operations related to spots and reviews.
+- Implement the search feature.
+- Implement language switch for better accessibility.
