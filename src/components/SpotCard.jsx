@@ -17,10 +17,10 @@ export default function SpotCard({ spot }) {
           </Link>
         </h2>
         <p className="mb-1">{spot.description}</p>
-        <p className="text-sm italic mb-1">Category: {spot.category}</p>
-        <p className="text-sm">Location: {spot.latitude}, {spot.longitude}</p>
-        <p className="text-xs mt-2 text-secondary">Added by: {spot.addedBy}</p>
-        <p className="text-xs text-secondary">Created at: {new Date(spot.createdAt).toLocaleString()}</p>
+        <p className="text-sm italic mb-1">Kategoria: {spot.category}</p>
+        <p className="text-sm">Lokalizacja: {spot.latitude}, {spot.longitude}</p>
+        <p className="text-xs mt-2 text-secondary">Dodany przez: {spot.addedBy}</p>
+        <p className="text-xs text-secondary">Dodano: {new Date(spot.createdAt).toLocaleString()}</p>
       </div>
 
       {spot.photos?.length > 0 && (

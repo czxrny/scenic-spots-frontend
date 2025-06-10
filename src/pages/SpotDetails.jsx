@@ -40,15 +40,15 @@ export default function SpotDetails() {
   return (
     <div className="max-w-4xl mx-auto p-6" style={{ backgroundColor: "var(--color-bg)", color: "var(--color-text)" }}>
       <h1 className="text-3xl font-bold mb-2">{spot.name}</h1>
-      <p className="italic text-sm mb-4 text-secondary">Category: {spot.category}</p>
+      <p className="italic text-sm mb-4 text-secondary">Kategoria: {spot.category}</p>
       <p className="mb-4">{spot.description}</p>
-      <p className="text-sm mb-1">📍 Location: {spot.latitude}, {spot.longitude}</p>
-      <p className="text-xs mb-1 text-secondary">Added by: {spot.addedBy}</p>
-      <p className="text-xs mb-6 text-secondary">Created at: {new Date(spot.createdAt).toLocaleString()}</p>
+      <p className="text-sm mb-1">📍 Lokalizacja: {spot.latitude}, {spot.longitude}</p>
+      <p className="text-xs mb-1 text-secondary">Dodany przez: {spot.addedBy}</p>
+      <p className="text-xs mb-6 text-secondary">Dodano: {new Date(spot.createdAt).toLocaleString()}</p>
 
       {spot.photos?.length > 0 && (
         <div className="mb-8">
-          <h2 className="text-xl font-semibold mb-2">Photos</h2>
+          <h2 className="text-xl font-semibold mb-2">Zdjęcia:</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4">
             {spot.photos.map((url, idx) => (
               <img
@@ -63,9 +63,9 @@ export default function SpotDetails() {
       )}
 
       <div className="mt-8">
-        <h2 className="text-xl font-semibold mb-4">Reviews</h2>
+        <h2 className="text-xl font-semibold mb-4">Recenzje</h2>
         {reviews.length === 0 ? (
-          <p className="text-sm text-muted">No reviews yet.</p>
+          <p className="text-sm text-muted">Brak recenzji.</p>
         ) : (
           <div className="space-y-4">
             {reviews.map((review) => (
@@ -79,8 +79,8 @@ export default function SpotDetails() {
               >
                 <p className="mb-2">⭐ {review.rating.toFixed(1)} / 5</p>
                 <p className="mb-2">{review.content}</p>
-                <p className="text-xs text-secondary">By: {review.addedBy}</p>
-                <p className="text-xs text-secondary">At: {new Date(review.createdAt).toLocaleString()}</p>
+                <p className="text-xs text-secondary">Dodane przez: {review.addedBy}</p>
+                <p className="text-xs text-secondary">Dodano: {new Date(review.createdAt).toLocaleString()}</p>
               </div>
             ))}
           </div>

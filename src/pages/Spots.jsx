@@ -22,7 +22,7 @@ export default function Spots() {
       });
   }, []);
 
-  if (loading) return <p>Loading spots...</p>;
+  if (loading) return <p>Ładowanie spotów...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
