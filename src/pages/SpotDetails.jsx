@@ -46,7 +46,6 @@ export default function SpotDetails() {
       <p className="text-xs mb-1 text-secondary">Added by: {spot.addedBy}</p>
       <p className="text-xs mb-6 text-secondary">Created at: {new Date(spot.createdAt).toLocaleString()}</p>
 
-      {/* Photos Gallery */}
       {spot.photos?.length > 0 && (
         <div className="mb-8">
           <h2 className="text-xl font-semibold mb-2">Photos</h2>
@@ -63,7 +62,6 @@ export default function SpotDetails() {
         </div>
       )}
 
-      {/* Reviews */}
       <div className="mt-8">
         <h2 className="text-xl font-semibold mb-4">Reviews</h2>
         {reviews.length === 0 ? (

@@ -26,7 +26,7 @@ export default function SpotCard({ spot }) {
       {spot.photos?.length > 0 && (
         <img
           src={spot.photos[0]}
-          alt={spot.name}
+          alt={`${spot.name} spot image`}
           className="w-40 h-28 object-cover rounded border"
           style={{ borderColor: "var(--color-border)" }}
         />

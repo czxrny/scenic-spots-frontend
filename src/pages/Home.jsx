@@ -151,7 +151,7 @@ export default function HomePage() {
                     </div>
 
                     <div className="mt-8 pt-8 border-t border-[var(--color-border)] text-center text-sm text-[var(--color-text)]/60">
-                        © 2024 Scenic Spots. Wszystkie prawa zastrzeżone.
+                        © 2025 Scenic Spots by czxrny. Wszystkie prawa zastrzeżone.
                     </div>
                 </div>
             </footer>
