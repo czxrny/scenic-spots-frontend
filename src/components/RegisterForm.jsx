@@ -30,38 +30,38 @@ export default function RegisterForm() {
         <div className="w-full bg-white dark:bg-bg rounded-lg shadow dark:border dark:border-secondary sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 sm:p-8">
             <h1 className="text-xl font-bold leading-tight tracking-tight text-text md:text-2xl">
-              Create an account
+              Utwórz konto
             </h1>
             <form className="space-y-4" onSubmit={onSubmit}>
               <div>
                 <label htmlFor="username" className="block mb-2 text-sm font-medium text-text">
-                  Username
+                  Nazwa użytkownika
                 </label>
                 <input
                   type="text"
                   name="username"
                   id="username"
                   className="bg-bg border border-secondary text-text rounded-lg block w-full p-2.5"
-                  placeholder="yourname"
+                  placeholder="twojanazwa"
                   required
                 />
               </div>
               <div>
                 <label htmlFor="email" className="block mb-2 text-sm font-medium text-text">
-                  Your email
+                  Twój e-mail
                 </label>
                 <input
                   type="email"
                   name="email"
                   id="email"
                   className="bg-bg border border-secondary text-text rounded-lg block w-full p-2.5"
-                  placeholder="name@company.com"
+                  placeholder="nazwa@firma.com"
                   required
                 />
               </div>
               <div>
                 <label htmlFor="password" className="block mb-2 text-sm font-medium text-text">
-                  Password
+                  Hasło
                 </label>
                 <input
                   type="password"
@@ -77,19 +77,19 @@ export default function RegisterForm() {
                 type="submit"
                 className="w-full text-white bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary rounded-lg text-sm px-5 py-2.5 text-center"
               >
-                Sign up
+                Zarejestruj się
               </button>
 
               {registerFailed && (
                 <p className="text-red-500 text-sm">
-                  Registration failed. Please check your inputs.
+                  Rejestracja nie powiodła się. Sprawdź poprawność danych.
                 </p>
               )}
 
               <p className="text-sm font-light text-secondary">
-                Already have an account?{" "}
+                Masz już konto?{" "}
                 <a href="/login" className="font-medium text-primary hover:underline">
-                  Sign in
+                  Zaloguj się
                 </a>
               </p>
             </form>

@@ -29,22 +29,21 @@ export default function LoginForm() {
                 <div className="w-full bg-white dark:bg-bg rounded-lg shadow dark:border dark:border-secondary md:mt-0 sm:max-w-md xl:p-0">
                     <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
                         <h1 className="text-xl font-bold leading-tight tracking-tight text-text md:text-2xl dark:text-text">
-                            Sign in to your account
+                            Zaloguj się do swojego konta
                         </h1>
                         <form className="space-y-4 md:space-y-6" action="#" onSubmit={onSubmint}>
                             <div>
-                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-text dark:text-text">Your email</label>
+                                <label htmlFor="email" className="block mb-2 text-sm font-medium text-text dark:text-text">Twój e-mail</label>
                                 <input
-
                                     name="email"
                                     id="email"
                                     className="bg-bg border border-secondary text-text rounded-lg focus:ring-primary focus:border-primary block w-full p-2.5 dark:bg-bg dark:border-secondary dark:placeholder-gray-400 dark:text-text"
-                                    placeholder="name@company.com"
+                                    placeholder="nazwa@firma.com"
                                     required
                                 />
                             </div>
                             <div>
-                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-text dark:text-text">Password</label>
+                                <label htmlFor="password" className="block mb-2 text-sm font-medium text-text dark:text-text">Hasło</label>
                                 <input
                                     type="password"
                                     name="password"
@@ -58,17 +57,17 @@ export default function LoginForm() {
                                 type="submit"
                                 className="w-full text-white bg-primary hover:bg-primary-hover focus:ring-4 focus:outline-none focus:ring-primary rounded-lg text-sm px-5 py-2.5 text-center dark:bg-primary dark:hover:bg-primary-hover"
                             >
-                                Sign in
+                                Zaloguj się
                             </button>
                             {loginFailed && (
                                 <p className="text-red-500 text-sm">
-                                    Login failed. Please check your email and password.
+                                    Logowanie nie powiodło się. Sprawdź e-mail i hasło.
                                 </p>
                             )}
 
                             <p className="text-sm font-light text-secondary dark:text-secondary">
-                                Don’t have an account yet?{" "}
-                                <a href="/register" className="font-medium text-primary hover:underline dark:text-primary">Sign up</a>
+                                Nie masz jeszcze konta?{" "}
+                                <a href="/register" className="font-medium text-primary hover:underline dark:text-primary">Zarejestruj się</a>
                             </p>
                         </form>
                     </div>
